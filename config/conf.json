@@ -1,0 +1,11 @@
+{
+  "app": {
+    "host": "localhost",
+    "port": 8080,
+    "logfile": "pkg/logging/logs.txt"
+  },
+  "jobs": {
+    "notifierTime": 5
+  },
+  "prod": true
+}
