@@ -19,15 +19,8 @@ func TestValidateOrderType(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if utils.IsCardCorrect(tt.order) != tt.wantResult {
-				t.Errorf("Card is invalid, input data: '%v'.", tt.order)
-			}
-		})
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
 			if utils.IsOrderTypeCorrect(tt.order) != tt.wantResult {
-				t.Errorf("data is invalid, data: '%v'", tt.order)
+				t.Errorf("order type is invalid, data: '%v'", tt.order)
 			}
 		})
 	}
@@ -41,12 +34,13 @@ func TestValidateCard(t *testing.T) {
 	}{
 		// ToDo: add more test cases
 		{name: "Correct Data", card: "4433**1409", wantResult: true},
+		{name: "Correct Data", card: "4433**", wantResult: false},
 		{name: "Empty Data", card: "", wantResult: false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if utils.IsCardCorrect(tt.card) != tt.wantResult {
-				t.Errorf("data is invalid, input data: '%v'.", tt.card)
+				t.Errorf("card is invalid, input data: '%v'.", tt.card)
 			}
 		})
 	}
@@ -62,12 +56,13 @@ func TestValidateWebUrl(t *testing.T) {
 		{name: "Correct Data", page: "https://amazon.com", wantResult: true},
 		{name: "Correct Data", page: "https://adidas.com", wantResult: true},
 		{name: "Wrong Data", page: "https://somon.tj", wantResult: true},
+		{name: "Wrong Data", page: "somon.tj", wantResult: false},
 		{name: "Empty Data", page: "", wantResult: false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if utils.IsWebUrlCorrect(tt.page) != tt.wantResult {
-				t.Errorf("data is invalid, data: '%v'", tt.page)
+				t.Errorf("web-url is invalid, data: '%v'", tt.page)
 			}
 		})
 	}

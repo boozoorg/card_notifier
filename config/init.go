@@ -37,6 +37,7 @@ func Setup(F string) {
 		return
 	}
 
+	log.Printf("cdonfig: %+v", Configs)
 	// for logging
 	//file, err := os.OpenFile(Configs.App.Logfile, os.O_WRONLY, 0777)
 	//if err != nil {

@@ -9,10 +9,15 @@ import (
 )
 
 func main() {
+	defer deferFunc()
 	config.Setup("config/conf.json")
-	log.Println("service start...")
+	log.Println("[................service start................]")
 	go scheduler.Setup()
 	db.Setup()
 	api.Router()
-	log.Println("service finish...")
+}
+
+func deferFunc()  {
+	db.Close()
+	log.Println("[................service close................]")
 }

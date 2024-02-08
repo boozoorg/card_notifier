@@ -21,7 +21,7 @@ func (t *timer) set() {
 
 // Setup run jobs on goroutine on timers set time
 func Setup() {
-	log.Println("jobs start...")
+	log.Println("[.................jobs start..................]")
 	var t timer
 	t.set()
 
